@@ -7,7 +7,6 @@ calculator program yourself in this file.
 
 from arithmetic import *
 
-
 # Your code goes here
 def calculate():
     while True:
@@ -16,12 +15,10 @@ def calculate():
         token_zero = tokens.pop(0)
         if token_zero == "q" or token_zero == "quit":
             break
-        for current_index in range(len(tokens)):         
+        for index in range(len(tokens)):         
             try:
-                type(tokens[current_index])
-                num = int(tokens[current_index])
-                tokens[current_index] = num
-                type(tokens[current_index])
+                num = int(tokens[index])
+                tokens[index] = num
                 # if len(tokens) > 1:
                 #     num = int(tokens[i+1])
             except ValueError:
@@ -30,7 +27,12 @@ def calculate():
         # specify that we can't accept a string other than square, cube, power, or modulus for token_one
         # also specify that if when we try to convert num_one and num_two into integers, and it doesn't work, we want to output "enter a number"
         if token_zero == "+":
-            print add(num_one, num_two)
+            """while len(tokens) > 1:
+                num_one = tokens[0]
+                num_two = tokens[1]
+                sum = add(num_one, num_two)
+                tokens[0:2] = [sum]"""
+            print add(tokens)
         elif token_zero == "-":
             print subtract(num_one, num_two)
         elif token_zero == "*":
