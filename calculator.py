@@ -13,14 +13,14 @@ def calculate():
     while True:
         input_string = raw_input("> ")
         tokens = input_string.split(" ")
-
-        token_zero = tokens[0]
+        token_zero = tokens.pop(0)
         if token_zero == "q" or token_zero == "quit":
             break
+        #for token in tokens:         
         try:
-            num_one = int(tokens[1])
-            if len(tokens) > 2:
-                num_two = int(tokens[2])
+            num_one = int(tokens[0])
+            if len(tokens) > 1:
+                num_two = int(tokens[1])
         except ValueError:
             print "Please enter only numbers for the second and third values."
             continue
