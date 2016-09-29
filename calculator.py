@@ -16,14 +16,17 @@ def calculate():
         token_zero = tokens.pop(0)
         if token_zero == "q" or token_zero == "quit":
             break
-        #for token in tokens:         
-        try:
-            num_one = int(tokens[0])
-            if len(tokens) > 1:
-                num_two = int(tokens[1])
-        except ValueError:
-            print "Please enter only numbers for the second and third values."
-            continue
+        for current_index in range(len(tokens)):         
+            try:
+                type(tokens[current_index])
+                num = int(tokens[current_index])
+                tokens[current_index] = num
+                type(tokens[current_index])
+                # if len(tokens) > 1:
+                #     num = int(tokens[i+1])
+            except ValueError:
+                print "Please enter only numbers for the second and third values."
+                continue
         # specify that we can't accept a string other than square, cube, power, or modulus for token_one
         # also specify that if when we try to convert num_one and num_two into integers, and it doesn't work, we want to output "enter a number"
         if token_zero == "+":
